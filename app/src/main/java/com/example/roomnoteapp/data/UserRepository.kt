@@ -1,4 +1,4 @@
-package data
+package com.example.roomnoteapp.data
 
 import androidx.lifecycle.LiveData
 
