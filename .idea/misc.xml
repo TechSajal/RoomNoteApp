@@ -4,11 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/drawable/ic_add.xml" value="0.2555" />
+        <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/drawable/ic_greencircle.xml" value="0.2475" />
+        <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/drawable/ic_redcircle.xml" value="0.2475" />
+        <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/drawable/ic_yellowcircle.xml" value="0.2475" />
         <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/font/roboto_condensed_bold.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/layout/activity_insert_data.xml" value="0.2359375" />
         <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/layout/fragment_add.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/layout/fragment_add.xml" value="0.264" />
         <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/layout/fragment_list.xml" value="0.2" />
+        <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/layout/item_note.xml" value="0.264" />
         <entry key="..\:/Users/sajal/AndroidStudioProjects/RoomNoteApp/app/src/main/res/menu/menu_toolbar.xml" value="0.1" />
       </map>
     </option>

@@ -9,5 +9,6 @@ data class User(
     val id:Int,
     val firstName:String,
     val lastName:String,
-    val age:Int = 0
+    val age:Int = 0,
+    val preference:Int = 1
 )
