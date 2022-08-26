@@ -18,8 +18,7 @@ class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-//        val currentitem = userlist[position]
-//        holder.itemView.
+
     }
 
     override fun getItemCount(): Int {

@@ -15,6 +15,18 @@
         android:src="@drawable/ic_arrow_back" />
 
     <ImageView
+        android:id="@+id/doneadd"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/etdelete_one"
+        android:layout_alignBottom="@+id/etdelete_one"
+        android:layout_marginStart="278dp"
+        android:layout_toEndOf="@+id/etarrowback"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_done" />
+
+    <ImageView
         android:id="@+id/etdelete_one"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -34,18 +46,19 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="17dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="13dp"
         android:background="@null"
         android:ellipsize="end"
-        android:fontFamily="@font/bowlby_one_sc"
+        android:fontFamily="sans-serif-condensed"
         android:hint="Notes Title"
         android:inputType="text"
         android:maxLines="1"
         android:textColor="@color/white"
         android:textColorHint="@color/ColorGray"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/l1"
@@ -61,7 +74,7 @@
             android:layout_width="5dp"
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
-            android:background="@drawable/ic_yellowcircle" />
+            android:background="@drawable/ic_greencircle" />
 
         <EditText
             android:id="@+id/etNoteSubTitle"
@@ -69,14 +82,15 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:ellipsize="end"
-            android:fontFamily="@font/bowlby_one_sc"
+            android:fontFamily="sans-serif-condensed"
             android:hint="Note Sub Title"
             android:inputType="text"
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/ColorGray"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <EditText
@@ -89,13 +103,14 @@
         android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:fontFamily="@font/bowlby_one_sc"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="Enter Note Here"
         android:inputType="textMultiLine"
-        android:text="Enter Note Here"
         android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textColorHint="@color/ColorGray"
-        android:textSize="26sp" />
+        android:textSize="26sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/preference"
@@ -104,7 +119,7 @@
         android:layout_below="@+id/etarrowback"
         android:layout_alignStart="@+id/etarrowback"
         android:layout_alignEnd="@+id/etdelete_one"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="244dp"
         android:orientation="horizontal"
         android:padding="5dp">
@@ -112,20 +127,6 @@
         <FrameLayout
             android:id="@+id/fNote4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/red"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_yellowcircle" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/fNote5"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="5dp"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -137,13 +138,27 @@
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/fNote6"
+            android:id="@+id/fNote5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp">
 
             <ImageView
                 android:id="@+id/yellow"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_yellowcircle" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fNote6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp">
+
+            <ImageView
+                android:id="@+id/red"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"

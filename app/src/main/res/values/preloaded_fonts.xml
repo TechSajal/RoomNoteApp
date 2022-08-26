@@ -3,8 +3,12 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/</item>
         <item>@font/alfa_slab_one</item>
+        <item>@font/archivo_black</item>
         <item>@font/bowlby_one_sc</item>
+        <item>@font/changa_one</item>
         <item>@font/chango</item>
+        <item>@font/fjalla_one</item>
         <item>@font/holtwood_one_sc</item>
+        <item>@font/titan_one</item>
     </array>
 </resources>
