@@ -1,10 +1,22 @@
+
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.1")
+    }
+}
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id "kotlin-parcelize"
+
 }
 
+apply plugin:"androidx.navigation.safeargs.kotlin"
 android {
     compileSdk 32
 
@@ -56,8 +68,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycleVersion"
 
     // Kotlin components
-  //  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
 
@@ -73,5 +83,5 @@ dependencies {
     })
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
     implementation 'com.airbnb.android:lottie:4.1.0'
-
-}
+    implementation 'com.google.android.material:material:1.6.1'
+   }

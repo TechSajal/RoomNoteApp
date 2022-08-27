@@ -8,67 +8,74 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.roomnoteapp.R
+import androidx.navigation.fragment.navArgs
 import com.example.roomnoteapp.Model.User
+import com.example.roomnoteapp.R
 import com.example.roomnoteapp.ViewModel.UserViewModel
 
-class AddFragment : Fragment() {
+class UpdateFragment : Fragment() {
+    private val args by navArgs<UpdateFragmentArgs>()
     private lateinit var mUserViewModel: UserViewModel
-    private var priority:Int = 1
-    private lateinit var notetitle:EditText
-    private lateinit var  notsubtitle:EditText
-    private lateinit var note:EditText
-    private lateinit var priogreen:ImageView
-    private lateinit var prioyellow:ImageView
-    private lateinit var priored:ImageView
+    private lateinit var priogreen: ImageView
+    private lateinit var prioyellow: ImageView
+    private lateinit var priored: ImageView
+    private var priority:Int = 0
     private lateinit var colorvi:View
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =inflater.inflate(R.layout.fragment_add, container, false)
-        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        notetitle = view.findViewById(R.id.upNoteTitle)
-        notsubtitle = view.findViewById(R.id.upNoteSubTitle)
-        note = view.findViewById(R.id.upNote)
+       val  view = inflater.inflate(R.layout.fragment_update, container, false)
+       mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
         priogreen = view.findViewById(R.id.upgreen)
         prioyellow = view.findViewById(R.id.upyellow)
         priored = view.findViewById(R.id.upred)
-        priogreen.setImageResource(R.drawable.ic_baseline_done_24)
         colorvi = view.findViewById(R.id.upcolorView)
+        view.findViewById<EditText>(R.id.upNoteTitle).setText(args.currentuser.noteTitle)
+        view.findViewById<EditText>(R.id.upNoteSubTitle).setText(args.currentuser.notesubtitle)
+        view.findViewById<EditText>(R.id.upNote).setText(args.currentuser.note)
+        when(args.currentuser.preference){
+            1 -> {
+                colorvi.setBackgroundDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_greencircle))
+                priogreen.setImageResource(R.drawable.ic_baseline_done_24)
+                priority =1
+            }
+            2 -> {
+                colorvi.setBackgroundDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_yellowcircle))
+                prioyellow.setImageResource(R.drawable.ic_baseline_done_24)
+                priority =2
+            }
+            3 -> {
+                colorvi.setBackgroundDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_redcircle))
+                priored.setImageResource(R.drawable.ic_baseline_done_24)
+                priority =3
+            }
+        }
         priority()
         view.findViewById<ImageView>(R.id.doneupdate).setOnClickListener {
-            insertDataToDataBase()
+            updateitem()
         }
-        view.findViewById<ImageView>(R.id.uparrowback).setOnClickListener {
-            findNavController().navigate(R.id.action_addFragment_to_listFragment)
-        }
-      return view
+
+        return view
     }
-
-    private fun insertDataToDataBase() {
-        val et_nodetitle = notetitle.text.toString()
-        val et_nodesubtitle = notsubtitle.text.toString()
-        val et_note = note.text.toString()
-        if (inputcheck(et_nodetitle,et_nodesubtitle,et_note)){
-            val user = User(0,et_nodetitle,et_nodesubtitle,et_note,priority)
-            mUserViewModel.addUser(user)
-            Toast.makeText(requireContext(),"Note Added",Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_addFragment_to_listFragment)
-        }else{
-            Toast.makeText(requireContext(),"Plz Fill All The Fields",Toast.LENGTH_LONG).show()
+    private fun updateitem(){
+        val title =    view?.findViewById<EditText>(R.id.upNoteTitle)?.text.toString()
+        val subtitle = view?.findViewById<EditText>(R.id.upNoteSubTitle)?.text.toString()
+        val note =     view?.findViewById<EditText>(R.id.upNote)?.text.toString()
+        if (inputcheck(title,subtitle,note)){
+            val updateduser = User(args.currentuser.id,title,subtitle,note,priority)
+            mUserViewModel.updateuser(updateduser)
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         }
-
     }
     private fun inputcheck(notetitle:String,notesubtitle:String,note:String):Boolean{
         return !(TextUtils.isEmpty(notetitle) || TextUtils.isEmpty(notesubtitle) || TextUtils.isEmpty(note))
     }
-    private fun priority(){
+    private  fun priority(){
         priogreen.setOnClickListener {
             priority = 1
             priogreen.setImageResource(R.drawable.ic_baseline_done_24)
@@ -93,6 +100,5 @@ class AddFragment : Fragment() {
             prioyellow.setImageResource(0)
         }
     }
-
 
 }

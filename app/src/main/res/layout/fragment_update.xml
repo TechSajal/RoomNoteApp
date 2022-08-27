@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent"
-    tools:context=".fragments.AddFragment">
+    tools:context=".fragments.UpdateFragment">
 
     <ImageView
         android:id="@+id/uparrowback"
@@ -14,21 +14,29 @@
         android:layout_marginTop="26dp"
         android:src="@drawable/ic_arrow_back" />
 
-
     <ImageView
         android:id="@+id/doneupdate"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignTop="@+id/etdelete_one"
         android:layout_alignBottom="@+id/etdelete_one"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="310dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginStart="278dp"
         android:layout_toEndOf="@+id/uparrowback"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_baseline_done" />
+
+    <ImageView
+        android:id="@+id/etdelete_one"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="13dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_delete" />
+
 
     <EditText
         android:id="@+id/upNoteTitle"
@@ -110,6 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/uparrowback"
         android:layout_alignStart="@+id/uparrowback"
+        android:layout_alignEnd="@+id/etdelete_one"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="244dp"
         android:orientation="horizontal"

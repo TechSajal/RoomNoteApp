@@ -1,10 +1,8 @@
 package com.example.roomnoteapp.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import com.example.roomnoteapp.Model.User
 
 @Dao
 interface UserDao {
@@ -13,4 +11,7 @@ interface UserDao {
 
     @Query("SELECT*FROM user_table ORDER BY id ASC")
     fun readAllData():LiveData<List<User>>
+
+    @Update
+    suspend fun updateuser(user: User)
 }

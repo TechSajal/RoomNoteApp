@@ -6,30 +6,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="wrap_content">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardCornerRadius="8dp"
         app:cardElevation="@dimen/_5sdp"
         android:layout_margin="@dimen/_5sdp"
         app:cardBackgroundColor="#FFCA28"
         android:padding="@dimen/_5sdp">
 
         <LinearLayout
+            android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
-                android:fontFamily="@font/bowlby_one_sc"
+                android:fontFamily="sans-serif-condensed"
                 android:paddingStart="@dimen/_10sdp"
                 android:paddingTop="@dimen/_10sdp"
                 android:textColor="#10141C"
                 android:textSize="@dimen/_15ssp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -39,30 +43,33 @@
                 android:id="@+id/tvsubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/bowlby_one_sc"
+                android:fontFamily="sans-serif-condensed"
                 android:paddingStart="@dimen/_10sdp"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"
                 android:textColor="#10141C"
                 android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Fruits" />
 
             <TextView
-                android:id="@+id/tvDateTime"
+                android:id="@+id/tvNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:fontFamily="@font/bowlby_one_sc"
+                android:fontFamily="sans-serif-condensed"
                 android:maxLines="1"
                 android:paddingStart="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
+                android:layout_marginEnd="80dp"
                 android:paddingBottom="@dimen/_5sdp"
                 android:singleLine="true"
                 android:textColor="#10141C"
                 android:textSize="@dimen/_9ssp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
