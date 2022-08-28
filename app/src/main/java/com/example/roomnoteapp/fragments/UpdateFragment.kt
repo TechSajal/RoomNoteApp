@@ -1,5 +1,6 @@
 package com.example.roomnoteapp.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -35,9 +37,15 @@ class UpdateFragment : Fragment() {
         prioyellow = view.findViewById(R.id.upyellow)
         priored = view.findViewById(R.id.upred)
         colorvi = view.findViewById(R.id.upcolorView)
+        view.findViewById<ImageView>(R.id.uparrowback).setOnClickListener {
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
         view.findViewById<EditText>(R.id.upNoteTitle).setText(args.currentuser.noteTitle)
         view.findViewById<EditText>(R.id.upNoteSubTitle).setText(args.currentuser.notesubtitle)
         view.findViewById<EditText>(R.id.upNote).setText(args.currentuser.note)
+        view.findViewById<ImageView>(R.id.updelete_one).setOnClickListener {
+            deleteuser()
+        }
         when(args.currentuser.preference){
             1 -> {
                 colorvi.setBackgroundDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_greencircle))
@@ -99,6 +107,19 @@ class UpdateFragment : Fragment() {
             priogreen.setImageResource(0)
             prioyellow.setImageResource(0)
         }
+    }
+
+    fun deleteuser(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){ _,_ ->
+            mUserViewModel.deleteuser(args.currentuser)
+            Toast.makeText(requireContext(),"Successfull Deleted",Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+        builder.setNegativeButton("No"){ _,_ ->}
+        builder.setTitle("Delete")
+        builder.setMessage("Are you sure you want to delete ${args.currentuser.noteTitle }?")
+        builder.create().show()
     }
 
 }

@@ -1,11 +1,14 @@
 package com.example.roomnoteapp.fragments
 
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.view.*
+import android.widget.ActionMenuView
+import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -21,6 +24,7 @@ private lateinit var mUserViewModel: UserViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
@@ -35,8 +39,25 @@ private lateinit var mUserViewModel: UserViewModel
         })
         view.findViewById<FloatingActionButton>(R.id.addnotes).setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
+
         }
+        view.findViewById<ActionMenuItemView>(R.id.app_delete).setOnClickListener {
+                 deleteUser()
+            }
         return view
+    }
+
+
+    private fun deleteUser() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){ _,_ ->
+            mUserViewModel.deleteAllUser()
+            Toast.makeText(requireContext(),"All Note Successfully Deleted", Toast.LENGTH_LONG).show()
+        }
+        builder.setNegativeButton("No"){ _,_ ->}
+        builder.setTitle("Delete All")
+        builder.setMessage("Are you sure you want to delete all notes?")
+        builder.create().show()
     }
 
 }

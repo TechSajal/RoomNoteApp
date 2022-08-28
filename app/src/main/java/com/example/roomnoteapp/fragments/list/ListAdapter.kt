@@ -1,21 +1,25 @@
 package com.example.roomnoteapp.fragments.list
 
+import android.app.FragmentManager
 import android.graphics.Color
+import android.system.Os.remove
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomnoteapp.R
 import com.example.roomnoteapp.Model.User
+import com.example.roomnoteapp.ViewModel.UserViewModel
 import com.example.roomnoteapp.fragments.ListFragmentDirections
 
 class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
     private var userlist = emptyList<User>()
-
     class MyViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -41,7 +45,8 @@ class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>(){
         holder.itemView.findViewById<LinearLayout>(R.id.layoutNote).setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentitem)
             holder.itemView.findNavController().navigate(action)
-        }
+              }
+
     }
 
     override fun getItemCount(): Int {

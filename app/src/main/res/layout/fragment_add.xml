@@ -19,16 +19,10 @@
         android:id="@+id/doneupdate"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_alignTop="@+id/etdelete_one"
-        android:layout_alignBottom="@+id/etdelete_one"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="310dp"
-        android:layout_marginEnd="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="13dp"
         android:layout_marginTop="26dp"
-        android:layout_toEndOf="@+id/uparrowback"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_baseline_done" />
+        android:src="@drawable/ic_done" />
 
     <EditText
         android:id="@+id/upNoteTitle"
@@ -110,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/uparrowback"
         android:layout_alignStart="@+id/uparrowback"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="244dp"
         android:orientation="horizontal"
         android:padding="5dp">
